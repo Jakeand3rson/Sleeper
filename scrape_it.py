@@ -4,7 +4,8 @@ import urllib2
 
 def pull_data():
     # This will pull data from the website
-    pass
+    openurl = urllib2.urlopen("https://codefellows.slack.com/messages/sea-python-401d2/details/")
+    soup = BeautifulSoup(openurl)
 
 
 def parse_data():
