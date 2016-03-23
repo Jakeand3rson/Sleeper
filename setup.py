@@ -2,6 +2,8 @@
 
 from setuptools import setup
 
+tests_require = ['pytest', 'pytest-cov', 'tox']
+
 
 setup(
     name="Sleeper",
@@ -13,15 +15,12 @@ setup(
         "scrape_it",
     ],
     package_dir={"": "src"},
+    test_suite="test",
     install_requires=[
         "bs4",
         "selenium"
     ],
     extras_require={
-        "test": [
-            "pytest",
-            "pytest-cov",
-            "tox",
-        ],
+        "test": tests_require,
     },
 )
