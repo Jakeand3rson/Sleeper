@@ -121,7 +121,7 @@ def get_member_rows(souped_source):
 
 
 def main():
-    if not os.getenv("SLACK_EMAIL") and os.getenv("SLACK_PASSWORD"):
+    if not (os.getenv("SLACK_EMAIL") and os.getenv("SLACK_PASSWORD")):
         raise LookupError(
             "Either or both of the environment variables 'SLACK_EMAIL' "
             "or 'SLACK_PASSWORD' are empty."
