@@ -108,14 +108,31 @@ def get_page_source_via_selenium():
     browser.close()
     print("Browser closed.")
 
-    print("Returning the source code as a BeautifulSoup object...")
-    return BeautifulSoup(html_source, 'html.parser')
+    print("Returning the page's source...")
+    return html_source
 
 
-def parse_data():
-    soup = get_page_source_via_selenium()
-    return soup.find_all('div', 'channel_page_member_row')
+def make_soup(page_source):
+    return BeautifulSoup(page_source, 'parser.html')
+
+
+def get_member_rows(souped_source):
+    return souped_source.find_all('div', 'channel_page_member_row')
+
+
+def main():
+    if not os.getenv("SLACK_EMAIL") and os.getenv("SLACK_PASSWORD"):
+        raise LookupError(
+            "Either or both of the environment variables 'SLACK_EMAIL' "
+            "or 'SLACK_PASSWORD' are empty."
+            "\n\n"
+            "Don't be a shit in my cut.\n"
+        )
+    page_source = get_page_source_via_selenium()
+    soup = make_soup(page_source)
+    member_rows = get_member_rows(soup)
+    print(member_rows)
 
 
 if __name__ == '__main__':
-    print(parse_data())
+    main()
