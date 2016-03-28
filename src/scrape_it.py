@@ -15,6 +15,12 @@ urls = {
 }
 
 
+def nap(seconds):
+    print("Sleeping for {} seconds...".format(seconds))
+    sleep(seconds)
+    print("Done sleeping.")
+
+
 def get_page_source_via_selenium():
     """Use Firefox via Selenium to get page source."""
     # Initialize browser
@@ -60,11 +66,7 @@ def get_page_source_via_selenium():
     # just clicking a button, the browser won't wait on its own so we should
     # make sure that it's doing so so that our credentials will have actually
     # gone through.
-    sleep_time = 10
-
-    print("Sleeping for {} seconds...".format(sleep_time))
-    sleep(sleep_time)
-    print("Done sleeping.")
+    nap(10)
 
     # Go to details page now that we're authenticated
     print("Navigating to details page...")
@@ -87,22 +89,14 @@ def get_page_source_via_selenium():
     member_count_field.click()
     print("Clicked!")
 
-    sleep_time = 2
-
-    print("sleeping for {} seconds...".format(sleep_time))
-    sleep(sleep_time)
-    print("Done sleeping.")
+    nap(2)
 
     # Get that source, baby!
     print("Getting page source...")
     html_source = browser.page_source
     print("Source obtained.")
 
-    sleep_time = 2
-
-    print("Sleeping for {} seconds...".format(sleep_time))
-    sleep(sleep_time)
-    print("Done sleeping.")
+    nap(2)
 
     print("Closing browser...")
     browser.close()
@@ -113,7 +107,7 @@ def get_page_source_via_selenium():
 
 
 def make_soup(page_source):
-    return BeautifulSoup(page_source, 'parser.html')
+    return BeautifulSoup(page_source, 'html.parser')
 
 
 def get_member_rows(souped_source):
