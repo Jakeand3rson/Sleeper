@@ -2,7 +2,12 @@
 
 from setuptools import setup
 
-tests_require = ['pytest', 'pytest-cov', 'tox']
+
+tests_require = [
+    'pytest',
+    'pytest-cov',
+    'tox',
+]
 
 
 setup(
@@ -17,8 +22,7 @@ setup(
     package_dir={"": "src"},
     test_suite="test",
     install_requires=[
-        "bs4",
-        "selenium"
+        'slacker',
     ],
     extras_require={
         "test": tests_require,
