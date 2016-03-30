@@ -1,22 +1,31 @@
 # -*- coding: utf-8 -*-
 
 from slacker import Slacker
-
 import os
 from time import sleep
 
-
-slack_token = os.getenv('SLACK_TOKEN')
 channel_name = 'sea-python-401d2'
 
 
-s = Slacker(slack_token)
+def get_token():
+    return os.environ.get('SLACK_TOKEN')
+
+s = Slacker(get_token())
 
 
-channel_id = s.channels.get_channel_id(channel_name)
-channel_info = s.channels.info(channel_id)
-members = channel_info.body['channel']['members']
+def channel_id():
+    return s.channels.get_channel_id(channel_name)
 
-for m in members:
-    print(m, s.users.get_presence(m).body['presence'])
-    sleep(1)
+
+def channel_info():
+    return s.channels.info(channel_id())
+
+
+def get_the_members():
+    members = channel_info().body['channel']['members']
+    status_dict = {}
+    for m in members:
+        status_dict[m] = s.users.get_presence(m).body['presence']
+    return status_dict
+
+print get_the_members()
