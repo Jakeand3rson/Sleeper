@@ -1,3 +1,7 @@
+![Build Status](https://travis-ci.org/Jakeand3rson/sleeper.svg?branch=tlake/ci)
+
+---
+
 # Sleeper
 Super secret things.
 
