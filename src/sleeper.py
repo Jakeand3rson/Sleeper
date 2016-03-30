@@ -1,16 +1,16 @@
 # -*- coding: utf-8 -*-
 
 from slacker import Slacker
-
 import os
 from time import sleep
 
-
-slack_token = os.getenv('SLACK_TOKEN')
 channel_name = 'sea-python-401d2'
 
 
-s = Slacker(slack_token)
+def get_token():
+    return os.environ.get('SLACK_TOKEN')
+
+s = Slacker(get_token())
 
 
 channel_id = s.channels.get_channel_id(channel_name)
