@@ -16,8 +16,11 @@ s = Slacker(get_token())
 def channel_id():
     return s.channels.get_channel_id(channel_name)
 
-channel_info = s.channels.info(channel_id())
-members = channel_info.body['channel']['members']
+
+def channel_info():
+    return s.channels.info(channel_id())
+
+members = channel_info().body['channel']['members']
 
 for m in members:
     print(m, s.users.get_presence(m).body['presence'])
