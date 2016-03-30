@@ -1,4 +1,4 @@
-![Build Status](https://travis-ci.org/Jakeand3rson/sleeper.svg?branch=tlake/ci)
+[![Build Status](https://travis-ci.org/Jakeand3rson/Sleeper.svg?branch=tlake/ci)](https://travis-ci.org/Jakeand3rson/Sleeper)
 
 ---
 
