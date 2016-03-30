@@ -20,8 +20,12 @@ def channel_id():
 def channel_info():
     return s.channels.info(channel_id())
 
-members = channel_info().body['channel']['members']
 
-for m in members:
-    print(m, s.users.get_presence(m).body['presence'])
-    sleep(1)
+def get_the_members():
+    members = channel_info().body['channel']['members']
+    status_dict = {}
+    for m in members:
+        status_dict[m] = s.users.get_presence(m).body['presence']
+    return status_dict
+
+print get_the_members()
