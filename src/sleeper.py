@@ -26,6 +26,8 @@ def get_the_members():
     status_dict = {}
     for m in members:
         status_dict[m] = s.users.get_presence(m).body['presence']
+        # Add a sleep call to avoid rate-limiting
+        # sleep(1)
     return status_dict
 
-print get_the_members()
+print(get_the_members())
