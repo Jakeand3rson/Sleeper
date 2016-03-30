@@ -62,3 +62,4 @@ target/
 .ipynb_checkpoints
 
 slack_credentials
+status_data.txt
