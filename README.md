@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Jakeand3rson/Sleeper.svg?branch=master)](https://travis-ci.org/Jakeand3rson/Sleeper)
+[![Build Status](https://travis-ci.org/Jakeand3rson/Sleeper.svg?branch=jake)](https://travis-ci.org/Jakeand3rson/Sleeper)
 # Sleeper
 Super secret things.
 
