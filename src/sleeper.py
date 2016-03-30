@@ -28,4 +28,4 @@ def get_the_members():
         status_dict[m] = s.users.get_presence(m).body['presence']
     return status_dict
 
-print get_the_members()
+print(get_the_members())
