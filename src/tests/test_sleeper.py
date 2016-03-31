@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
-import pytest
+# import pytest
 import os
-from .. sleeper import get_token, channel_id, channel_info
+from .. sleeper import get_token, channel_id, channel_info, get_the_members
 from slacker import Slacker
 
 channel_name = 'sea-python-401d2'
@@ -27,3 +27,11 @@ def test_channel_info():
     channel_id = s.channels.get_channel_id(channel_name)
     info = s.channels.info(channel_id)
     assert channel_info().body == info.body
+
+
+def test_member_list():
+    """This will test the members that come out"""
+    """ by confirming each id starts with a U0"""
+    members = get_the_members()
+    for key in members:
+        assert key[:2] == 'U0'
