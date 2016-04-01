@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 # import pytest
 import os
-from .. sleeper import get_token, channel_id, channel_info, get_the_members
+from .. sleeper import (get_token, channel_id,
+                        channel_info, get_the_members,
+                        write_data)
 from slacker import Slacker
 
 channel_name = 'sea-python-401d2'
@@ -31,7 +33,14 @@ def test_channel_info():
 
 def test_member_list():
     """This will test the members that come out"""
-    """ by confirming each id starts with a U0"""
+    """ by confirming each id starts with a 'U0'"""
     members = get_the_members()
     for key in members:
         assert key[:2] == 'U0'
+
+
+def test_file_write_output():
+    """This will test to make sure that the file
+    outputed by the write_data function is indeed created"""
+    write_data(get_the_members())
+    assert os.path.isfile('status_data.txt')
