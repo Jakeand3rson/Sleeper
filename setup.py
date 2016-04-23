@@ -17,7 +17,7 @@ setup(
     author="Tanner Lake, Jake Anderson",
     license="MIT",
     py_modules=[
-        "scrape_it",
+        "sleeper",
     ],
     package_dir={"": "src"},
     test_suite="test",
