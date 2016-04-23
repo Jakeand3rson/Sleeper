@@ -13,6 +13,7 @@ channel_name = 'sea-python-401d2'
 def get_token():
     return os.environ.get('SLACK_TOKEN')
 
+
 s = Slacker(get_token())
 
 
@@ -30,7 +31,7 @@ def get_the_members():
     for m in members:
         status_dict[m] = s.users.get_presence(m).body['presence']
         # Add a sleep call to avoid rate-limiting
-        # sleep(1)
+        sleep(1)
     return status_dict
 
 
