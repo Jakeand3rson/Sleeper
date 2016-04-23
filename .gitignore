@@ -63,3 +63,4 @@ target/
 
 slack_credentials
 status_data.txt
+sleeper_env/
