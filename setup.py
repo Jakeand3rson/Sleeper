@@ -22,6 +22,8 @@ setup(
     package_dir={"": "src"},
     test_suite="test",
     install_requires=[
+        'django',
+        'psycopg2',
         'slacker',
     ],
     extras_require={
