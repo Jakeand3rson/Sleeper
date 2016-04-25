@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from django.core.management.base import BaseCommand, CommandError
+from django.core.management.base import BaseCommand
 from slack_data.models import UserPresence
 
 import os
@@ -23,8 +23,9 @@ class Command(BaseCommand):
     def get_the_members(self):
         members = self.channel_info().body['channel']['members']
         status_dict = {}
-        for m in members:
-            status_dict[m] = self.slacker.users.get_presence(m).body['presence']
+        for member in members:
+            users = self.slacker.users
+            status_dict[member] = users.get_presence(member).body['presence']
             sleep(1)  # Sleep call to avoid rate-limiting
         return status_dict
 
